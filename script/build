@@ -3,5 +3,5 @@ webpack --devtool source-map --colors --mode production
 
 node_modules/uglify-js/bin/uglifyjs dist/NexusUI.js \
   --output dist/NexusUI.min.js \
-  --source-map "content=dist/NexusUI.map,url=NexusUI.min.map" \
+  --source-map "content=dist/NexusUI.map,url=NexusUI.min.js.map" \
   --compress

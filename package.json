@@ -7,6 +7,7 @@
     "serve": "npm run docserve",
     "build": "bash script/build",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "start": "bash script/watch",
     "docgen": "node_modules/.bin/documentation build lib/** -f json -o api/api.json",
     "docserve": "bash script/docserve-nix",

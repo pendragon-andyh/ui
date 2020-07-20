@@ -18,7 +18,9 @@
       "semi": 2,
       // TODO - Should aim to remove the following:
       "no-mixed-spaces-and-tabs": "off",
-      "no-prototype-builtins": "off"
+      "no-prototype-builtins": "off",
+      "no-useless-escape": "off",
+      "no-unused-vars": "off"
   },
   "plugins": [
     "eslint-plugin-jest"
