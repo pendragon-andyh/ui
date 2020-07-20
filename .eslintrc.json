@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:jest/recommended"
+  ],
+  "env":{
+    "browser": true,
+    "node": true,
+    "amd": true,
+    "es6": true,
+    "jest/globals": true
+  },
+  "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+  },
+  "rules": {
+      "semi": 2,
+      // TODO - Should aim to remove the following:
+      "no-mixed-spaces-and-tabs": "off",
+      "no-prototype-builtins": "off"
+  },
+  "plugins": [
+    "eslint-plugin-jest"
+  ]
+}

@@ -1,63 +1,31 @@
+const path = require('path');
+
 module.exports = {
+    devtool: 'source-map',
     entry: './index.js',
     output: {
-        filename: './dist/NexusUI.js',
-        sourceMapFilename: './dist/NexusUI.map',
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'NexusUI.js',
+        sourceMapFilename: 'NexusUI.map',
         library: 'Nexus',
         libraryTarget: 'umd'
     },
     module: {
-        preLoaders: [{
-            test: /\.js$/, // include .js files
-            exclude: /node_modules/, // exclude any and all files in the node_modules folder
-            loader: 'jshint-loader'
-        }],
-        loaders: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
-        }]
+        rules: [
+            {
+                enforce: 'pre',
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'eslint-loader',
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            }
+        ]
     },
     resolve: {
-        extensions: ['', '.js']
-    },
-    jshint: {
-        'node': true,
-        'browser': true,
-        'esnext': true,
-        'bitwise': false,
-        'camelcase': false,
-        'curly': false,
-        'eqeqeq': false,
-        'immed': true,
-        'latedef': true,
-        'newcap': true,
-        'noarg': true,
-        'regexp': true,
-        'undef': true,
-        'unused': true,
-        'strict': true,
-        'trailing': true,
-        'smarttabs': false,
-        'globals': {},
-        'predef': [
-            'define',
-            'require',
-            'exports',
-            'module',
-            'describe',
-            'before',
-            'beforeEach',
-            'after',
-            'afterEach',
-            'it',
-            'inject',
-            'expect',
-            'spyOn'
-        ],
-        'indent': 4,
-        'devel': true,
-        'noempty': true,
-        'maxlen': 0
+        extensions: ['.js']
     }
 };

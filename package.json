@@ -5,10 +5,11 @@
   "main": "dist/NexusUI.js",
   "scripts": {
     "serve": "npm run docserve",
-    "build": "script/build",
-    "start": "script/watch",
+    "build": "bash script/build",
+    "lint": "eslint .",
+    "start": "bash script/watch",
     "docgen": "node_modules/.bin/documentation build lib/** -f json -o api/api.json",
-    "docserve": "script/docserve-nix",
+    "docserve": "bash script/docserve-nix",
     "test": "jest",
     "release": "standard-version"
   },
@@ -24,32 +25,22 @@
   },
   "homepage": "https://nexus-js.github.io/ui",
   "devDependencies": {
-    "babel-core": "^4.7.16",
-    "babel-jest": "^4.0.0",
-    "babel-loader": "^4.0.0",
-    "babelify": "^5.0.3",
-    "color-ops": "^2.0.0",
-    "documentation": "^5.3.5",
-    "es6ify": "^1.6.0",
-    "fuse": "^0.4.0",
-    "jest": "^0.1.37",
-    "jshint": "^2.6.3",
-    "jshint-loader": "^0.8.3",
-    "standard-version": "^7.1.0",
-    "uglify-js": "^2.4.16",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-jest": "^26.1.0",
+    "babel-loader": "^8.1.0",
+    "documentation": "^13.0.2",
+    "eslint": "^7.4.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-jest": "^23.18.0",
+    "jest": "^26.1.0",
+    "standard-version": "^8.0.2",
+    "uglify-js": "^3.10.0",
     "waaclock": "^0.5.3",
-    "webpack": "^1.5.3"
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   },
   "jest": {
-    "scriptPreprocessor": "./node_modules/babel-jest",
-    "testFileExtensions": [
-      "es6",
-      "js"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "es6"
-    ]
+    "transform": {".*": "./node_modules/babel-jest"}
   }
 }
